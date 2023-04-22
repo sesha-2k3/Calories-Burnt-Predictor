@@ -72,6 +72,6 @@ uvicorn main:app --reload
 
 ### Website
 
-![app_interface](markdown/Screenshot 2023-04-22 153149.png)
+![app_interface](markdown/website.png)
 
 
