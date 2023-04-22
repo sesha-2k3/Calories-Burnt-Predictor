@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Insurance Predictor</title>
+	<title>Calories Predictor</title>
 	<link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -35,17 +35,18 @@
 				<form action = "/predict" method = "post">
 					<div class="flex: 6">
 
-						<label for="age">Age</label>
+						<label for="Age">Age</label>
 						<input 
-							id="age"
+							id="Age"
 							class="form-control"
 							type="number" 
 							min="10"
 							max="100"
 							step="1"
-							name="age"
+							name="Age"
 							placeholder="(e.g: 28)"
-							required>
+							required
+						/>
 
 						<label for="Gender_male">Gender</label>
 						<select name="Gender_male" class="form-control">
@@ -63,9 +64,10 @@
 							min="15.96"
 							max="53.13"
 							step="0.01"
-							name="bmi"
+							name="BMI"
 							placeholder="(e.g: 28.6)"
-							required>
+							required
+						/>
 
 						<label for="Duration">Enter the duration of your Activity</label>
 						<input 
@@ -77,7 +79,8 @@
 							step="1"
 							name="Duration"
 							placeholder="Enter the activity time in minutes"
-							required>
+							required
+						/>
 
                         <label for="Heart_rate">Enter your Heart Rate</label>
                         <input 
@@ -89,7 +92,8 @@
                             step="1"
                             name="Heart_rate"
                             placeholder="Enter your Heart Rate"
-                            required>
+                            required
+						/>
 
                         <label for="Body_Temp">Enter your Body Temperature</label>
                         <input 
@@ -101,12 +105,13 @@
                             step="1"
                             name="Body_Temp"
                             placeholder="Enter your Body Temperature"
-                            required>
+                            required
+						/>
 
 						<input id="submit" class="btn" type="submit" value="Predict"/>
 
 					</div>
-				</form>
+				</form>	
 			</div>
 		</div>
 		<h3>Results:</h3>
