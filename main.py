@@ -1,7 +1,7 @@
 import joblib # For loading model pickle file
 import numpy as np # For array conversion
 import pandas as pd # For dataframe conversion
-from sklearn.preprocessing import StandardScaler as sc # For normalising the input
+# from sklearn.preprocessing import StandardScaler as sc For normalising the input
 
 # FastAPI is a modern, fast (high-performance), web framework for building APIs with Python
 from fastapi import FastAPI, Form, Request
@@ -17,12 +17,13 @@ app.mount("/static",StaticFiles(directory="static"),name="static")
 # Loads the Machine Learning model
 model = joblib.load("models/Calories_Predictor_RF_.pkl")
 
-
+sc = joblib.load("models/SC_instance.pkl")
+  
 # Sets the templates folder for the app
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/",response_class=HTMLResponse)
-async def home_index(request: Request):
+async def home_index(request: Request): 
 	"""
     Function to render `index.html` at route '/' as a get request
     __Args__:
@@ -59,7 +60,7 @@ async def predict(
     - __TemplateResponse__: render `result.html`
     """
 
-	sex = 1 if sex.lower() == "male" else 0
+	Gender_male = 1 if Gender_male.lower() == "male" else 0
 
 
 	# Convert list to pandas dataframe
@@ -75,6 +76,3 @@ async def predict(
 	prediction = round(output[0],2)
 	
 	return templates.TemplateResponse("index.html",context={"request":request,"prediction":prediction})
-
-
-
